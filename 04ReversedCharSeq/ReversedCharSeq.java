@@ -16,8 +16,9 @@ public class ReversedCharSeq{
 	return seq.length();
     }
 
-    public String subSequence(int start, int end){
-	return seq.substring(start, end);
+    public CharSequence subSequence(int start, int end){
+	CharSequence ans = new CharSequence(seq.substring(start, end));
+	return ans;
     }
     
     public String toString(){
