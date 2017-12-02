@@ -1,4 +1,7 @@
-public class SuperArray {
+import java.util.*;
+import java.io.*;
+
+public class SuperArray implements Iterable<String>{
     private String[] data;
     private int size;
 
@@ -148,6 +151,37 @@ public class SuperArray {
 	return false;
     }
 
+
+    public Iterator<String> iterator(){
+	return new ArrayIter(this);
+    }
+
+    private class ArrayIter implements Iterator<String>{
+	private int index;
+	private SuperArray arr;
+	
+	public ArrayIter(SuperArray a){
+	    index = 0;
+	    arr = new SuperArray(a.size());
+	    for (int x = 0; x < a.size(); x++){
+		arr.add(a.get(x));
+	    }
+	}
+
+	public boolean hasNext(){
+	    return arr.size() != 0;
+	}
+
+	public String next(){
+	    index++;
+	    return arr.remove(0);
+	}
+    }
+
+
+
+
+    
     public static void main(String[] args){
 	SuperArray a = new SuperArray();
 	a.add("a");
@@ -157,5 +191,12 @@ public class SuperArray {
 	a.add("da");
 	a.add("ea");
 	a.add("fa");
+	
+	System.out.println("Before iteration: " + a);
+	System.out.println("Iterating through a: ");
+	for (String x: a){
+	    System.out.println(x);
+	}
+	System.out.println("After iteration: " + a);
     }
 }
