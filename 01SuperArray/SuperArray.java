@@ -88,13 +88,13 @@ public class SuperArray implements Iterable<String>{
     }
 
     public void add(int index, String element){
-	if (index < 0 || index >= size){
+	if (index < 0 || index > size){
 	    throw new IndexOutOfBoundsException();
 	}
 	if (index == size){
 	    add(element);
 	}
-	if (index < size){
+	else if (index < size){
 	    resize();
 	    size++;
 	    for (int x = size - 1; x > index; x--){
