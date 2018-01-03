@@ -40,11 +40,11 @@ public class Sorts{
 
     public static void bogoSort(int[] data){
 	while(!(isSorted(data))){
-	    for(int i = 0 ; i < ary.length; i++){
-		int temp = ary[i];
-		int newSpot = (int)(Math.random()*ary.length);
-		ary[i] = ary[newSpot];
-		ary[newSpot] = temp;
+	    for(int i = 0 ; i < data.length; i++){
+		int temp = data[i];
+		int newSpot = (int)(Math.random()*data.length);
+		data[i] = data[newSpot];
+		data[newSpot] = temp;
 	    }
 	}
     }
